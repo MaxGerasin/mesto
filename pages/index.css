@@ -23,3 +23,13 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__button-edit/profile__button-edit.css);
 @import url(../blocks/profile/__button-add/profile__button-add.css);
+
+/* Element */
+
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__grid/element__grid.css);
+@import url(../blocks/element/__grid-item/element__grid-item.css);
+@import url(../blocks/element/__grid-image/element__grid-image.css);
+@import url(../blocks/element/__grid-info/element__grid-info.css);
+@import url(../blocks/element/__grid-title/element__grid-title.css);
+@import url(../blocks/element/__button-like/element__button-like.css);
