@@ -1,6 +1,7 @@
 /* Normalize.css + глобальные стили + шрифты */
 
 @import url(../vendor/normalize.css);
+@import url(../blocks/body/body.css);
 @import url(../blocks/page/page.css);
 @import url(../fonts/fonts.css);
 
