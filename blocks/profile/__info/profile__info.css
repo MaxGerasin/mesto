@@ -2,7 +2,7 @@
   display: flex;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   .profile__info {
     max-width: 282px;
     margin-top: 26px;
