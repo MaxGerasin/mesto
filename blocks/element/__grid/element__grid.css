@@ -18,5 +18,7 @@
   .element__grid {
     max-width: 282px;
     padding: 36px 0 48px;
+    gap: 15px 17px;
+
   }
 }
