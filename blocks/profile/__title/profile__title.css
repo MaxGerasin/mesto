@@ -1,24 +1,24 @@
-.profile__title {
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: 500;
-  font-size: 42px;
-  line-height: 1.14;
-  color: #FFFFFF;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-
-  margin: 0 0 16px;
-  padding: 0;
-  max-width: 294px;
-}
-
-@media screen and (max-width: 920px) {
   .profile__title {
-    min-width: 189px;
-    font-size: 27px;
-    line-height: 1.22;
-    text-align: center;
-    margin: 0 0 14px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.14;
+    color: #ffffff;
+    margin: 0;
+    padding-bottom: 16px;
+    max-width: 294px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
-}
+
+  @media screen and (max-width: 920px) {
+    .profile__title {
+      max-width: 189px;
+      text-align: center;
+      font-size: 27px;
+      line-height: 1.22;
+      padding: 0 0 10px 21.5px;
+    }
+  }

@@ -1,14 +1,14 @@
 const buttonEdit = document.querySelector('.profile__button-edit');
 const popUp = document.querySelector('.popup');
-const inputName = document.querySelector('#name');
-const inputMission = document.querySelector('#mission');
+const inputName = document.querySelector('.popup__input_value_title');
+const inputMission = document.querySelector('.popup__input_value_subtitle');
 const formSubmit = document.querySelector('.popup__form');
 const buttonClose = document.querySelector('.popup__close');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
 function toggleOpenPopup () {
-  popUp.classList.toggle('popup_open');
+  popUp.classList.toggle('popup_opened');
 }
 
 function clickEdit() {
