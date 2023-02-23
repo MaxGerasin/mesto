@@ -4,6 +4,8 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+  background: none;
 
   background-image: url(../../../images/basket-button.svg);
   background-repeat: no-repeat;
