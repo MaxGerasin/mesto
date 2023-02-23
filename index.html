@@ -25,54 +25,9 @@
       </section>
       <section class="element">
         <ul class="element__grid">
-          <li class="element__grid-item">
-            <img src="./images/Karachevsk.jpg" alt="Карачевск" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Карачевск</h2>
-              <button class="element__button-like" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__grid-item">
-            <img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Гора Эльбрус</h2>
-              <button class="element__button-like"></button>
-            </div>
-          </li>
-          <li class="element__grid-item">
-            <img src="./images/Dombai.jpg" alt="Домбай" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Домбай</h2>
-              <button class="element__button-like"></button>
-            </div>
-          </li>
-          <li class="element__grid-item">
-            <img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Гора Эльбрус</h2>
-              <button class="element__button-like"></button>
-            </div>
-          </li>
-          <li class="element__grid-item">
-            <img src="./images/Dombai.jpg" alt="Домбай" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Домбай</h2>
-              <button class="element__button-like"></button>
-            </div>
-          </li>
-          <li class="element__grid-item">
-            <img src="./images/Karachevsk.jpg" alt="Карачаево-Черкесия" class="element__grid-image">
-            <div class="element__grid-info">
-              <h2 class="element__grid-title">Карачаево-Черкесия</h2>
-              <button class="element__button-like"></button>
-            </div>
-          </li>
+
         </ul>
       </section>
-
-
-
-
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2023 Mesto Russia</p>
@@ -90,6 +45,18 @@
       </div>
     </div>
   </div>
+
+  <template id="card-template">
+    <li class="card">
+      <button type="button" class="card__basket-button" aria-label="Корзина"></button>
+      <img src="#" alt="#" class="card__img">
+      <div class="card__container">
+        <h2 class="card__name"></h2>
+        <button type="button" class="card__like-button" aria-label="Лайк"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./script/index.js"></script>
 </body>
 </html>
