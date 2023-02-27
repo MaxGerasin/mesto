@@ -57,3 +57,8 @@ const popupPicture = document.querySelector('.popup-picture');
 const imgPopup = popupPicture.querySelector('.popup__img');
 const captionPopup = popupPicture.querySelector('.popup__caption');
 
+// Template, cardsContainer
+
+const cardTemplate = document.querySelector('#card-template').content;
+const cardsContainer = document.querySelector('.element__grid');
+
