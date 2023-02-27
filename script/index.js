@@ -62,7 +62,7 @@ const captionPopup = popupPicture.querySelector('.popup__caption');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.element__grid');
 
-// JS
+// Function
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -124,3 +124,30 @@ function initCards() {
     renderCard(card);
   });
 };
+
+function sendFormEditProfile(evt) {
+  evt.preventDefault();
+  profileName.textContent = inputName.value;
+  profileStatus.textContent = inputStatus.value;
+  closePopup(popupEdit);
+};
+
+function sendFormCreatePicture(evt) {
+  evt.preventDefault();
+  const card = createCard(inputTitlePlace.value, inputSourceImage.value);
+  renderCard(card);
+  closePopup(popupAdd);
+};
+
+initCards();
+
+// addEventListener
+
+buttonEdit.addEventListener('click', openEditProfile);
+buttonAdd.addEventListener('click', openAddPicture);
+buttonsClose.forEach(function (element) {
+  const popup = element.closest('.popup');
+  element.addEventListener('click', () => closePopup(popup));
+});
+formPopupEdit.addEventListener('submit', sendFormEditProfile);
+formPopupAdd.addEventListener('submit', sendFormCreatePicture);
