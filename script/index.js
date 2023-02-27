@@ -80,9 +80,22 @@ function deletePicture(evt) {
   evt.target.closest('.card').remove();
 };
 
+function openEditProfile() {
+  inputName.value = profileName.textContent;
+  inputStatus.value = profileStatus.textContent;
+  openPopup(popupEdit);
+};
+
+
 function openPopupPicture(namePicture, link) {
   imgPopup.src = link;
   imgPopup.alt = namePicture;
   captionPopup.textContent = namePicture;
   openPopup(popupPicture);
+};
+
+function openAddPicture() {
+  openPopup(popupAdd);
+  inputTitlePlace.value = '';
+  inputSourceImage.value = '';
 };
