@@ -36,7 +36,7 @@
     <div class="popup popup-edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="popupForm" method="post">
+        <form class="popup__form popup__form-edit " name="popupForm" method="post">
           <input type="text" name="inputName" placeholder="Имя" class="popup__input popup__input_value_title" required>
           <input type="text" name="inputMission" placeholder="О себе" class="popup__input popup__input_value_subtitle" required>
           <button type="submit" aria-label="Сохранить изменения профиля" class="popup__submit">Сохранить</button>
@@ -49,7 +49,7 @@
   <div class="popup popup-add">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="popupForm" method="post">
+      <form class="popup__form popup__form-add" name="popupForm" method="post">
         <input type="text" name="title-place" placeholder="Название" class="popup__input popup__input_title-place" required>
         <input type="text" name="source-image" placeholder="Ссылка картинки" class="popup__input popup__input_source-image" required>
         <button type="submit" aria-label="Добавить новое место" class="popup__submit">Создать</button>
