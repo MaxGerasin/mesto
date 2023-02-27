@@ -26,7 +26,7 @@ const initialCards = [
 ];
 
 const buttonEdit = document.querySelector('.profile__button-edit');
-const popupEdit = document.querySelector('.popup-edit');
+const popupEdit = document.querySelector('.popup');
 const inputName = document.querySelector('.popup__input_value_title');
 const inputMission = document.querySelector('.popup__input_value_subtitle');
 const formSubmit = document.querySelector('.popup__form-edit');
@@ -49,36 +49,19 @@ const popupPicture = document.querySelector('.popup-picture');
 const imgPopup = popupPicture.querySelector('.popup__img');
 const captionPopup = popupPicture.querySelector('.popup__caption');
 
-function toggleOpenPopup () {
-  popupEdit.classList.toggle('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 }
 
-function clickClose() {
-  toggleOpenPopup();
+function closePopup(popup) {
+  popup.classList.add('popup_opened');
 }
-
-function clickEdit() {
-  inputName.value = `${profileTitle.textContent}`;
-  inputMission.value = `${profileSubtitle.textContent}`;
-  toggleOpenPopup();
-}
-
-function clickSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = `${inputName.value}`;
-  profileSubtitle.textContent = `${inputMission.value}`;
-  toggleOpenPopup();
-};
-
-formSubmit.addEventListener('submit', clickSubmit);
-buttonEdit.addEventListener('click', clickEdit);
-buttonClose.addEventListener('click', clickClose);
 
 function openPopupPicture (namePicture, link) {
   imgPopup.src = link;
   imgPopup.alt = namePicture;
   captionPopup.textContent = namePicture;
-  toggleOpenPopup(popupPicture);
+  openPopup(popupPicture);
 };
 
 function likeButton(evt) {
@@ -115,3 +98,9 @@ function initCards() {
     renderCard(card);
   });
 }
+
+function openAddPicture() {
+  openPopup(popupAdd);
+  inputTitlePlace.value = '';
+  inputSourceImage.value = '';
+};
