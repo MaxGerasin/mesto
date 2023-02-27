@@ -99,3 +99,28 @@ function openAddPicture() {
   inputTitlePlace.value = '';
   inputSourceImage.value = '';
 };
+
+function createCard(namePicture, link) {
+  const cardClone = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardImage = cardClone.querySelector('.card__img');
+
+  cardClone.querySelector('.card__name').textContent = namePicture;
+  cardImage.src = link;
+  cardImage.alt = namePicture;
+
+  cardImage.addEventListener('click', () => openPopupPicture(namePicture, link));
+  cardClone.querySelector('.card__like-button').addEventListener('click', likeButton);
+  cardClone.querySelector('.card__basket-button').addEventListener('click', deletePicture);
+  return cardClone;
+};
+
+function renderCard(card) {
+  cardsContainer.prepend(card);
+}
+
+function initCards() {
+  initialCards.forEach(({name, link}) => {
+    const card = createCard(name, link);
+    renderCard(card);
+  });
+};
