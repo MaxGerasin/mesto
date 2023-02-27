@@ -62,3 +62,27 @@ const captionPopup = popupPicture.querySelector('.popup__caption');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.element__grid');
 
+// JS
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+};
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+};
+
+function likeButton(evt) {
+  evt.target.classList.toggle('card__like-button_active');
+};
+
+function deletePicture(evt) {
+  evt.target.closest('.card').remove();
+};
+
+function openPopupPicture(namePicture, link) {
+  imgPopup.src = link;
+  imgPopup.alt = namePicture;
+  captionPopup.textContent = namePicture;
+  openPopup(popupPicture);
+};
