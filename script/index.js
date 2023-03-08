@@ -151,3 +151,4 @@ buttonsClose.forEach(function (element) {
 });
 formPopupEdit.addEventListener('submit', sendFormEditProfile);
 formPopupAdd.addEventListener('submit', sendFormCreatePicture);
+
