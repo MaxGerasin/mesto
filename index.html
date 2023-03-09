@@ -36,9 +36,11 @@
     <div class="popup popup-edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form popup__form-edit" name="popupForm" method="post">
-          <input type="text" name="name" placeholder="Имя" class="popup__input popup__input_value_title" required>
-          <input type="text" name="status" placeholder="О себе" class="popup__input popup__input_value_subtitle" required>
+        <form class="popup__form popup__form-edit" name="popupForm-edit" method="post">
+          <input id="name-input" type="text" name="name" placeholder="Имя" class="popup__input popup__input_value_title" minlength="2" maxlength="40" required>
+          <span class="popup__error name-input-error"></span>
+          <input id="status-input" type="text" name="status" placeholder="О себе" class="popup__input popup__input_value_subtitle" minlength="2" maxlength="200" required>
+          <span class=" popup__error status-input-error"></span>
           <button type="submit" aria-label="Сохранить изменения профиля" class="popup__submit">Сохранить</button>
         </form>
         <button type="button" aria-label="Закрыть окно" class="popup__close"></button>
@@ -49,9 +51,11 @@
   <div class="popup popup-add">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form-add" name="popupForm" method="post">
-        <input type="text" name="title-place" placeholder="Название" class="popup__input popup__input_title-place" required>
-        <input type="text" name="source-image" placeholder="Ссылка картинки" class="popup__input popup__input_source-image" required>
+      <form class="popup__form popup__form-add" name="popupForm-add" method="post">
+        <input id="title-place-input" type="text" name="title-place" placeholder="Название" class="popup__input popup__input_title-place" minlength="2" maxlength="30" required>
+        <span class=" popup__error title-place-input-error"></span>
+        <input id="source-image-input" type="url" name="source-image" placeholder="Ссылка картинки" class="popup__input popup__input_source-image" required>
+        <span class=" popup__error source-image-input-error"></span>
         <button type="submit" aria-label="Добавить новое место" class="popup__submit">Создать</button>
       </form>
       <button type="button" aria-label="Закрыть окно" class="popup__close"></button>
@@ -80,6 +84,8 @@
     </li>
   </template>
 
+
   <script src="./script/index.js"></script>
+  <script src="./script/validate.js"></script>
 </body>
 </html>
