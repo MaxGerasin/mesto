@@ -116,6 +116,8 @@ function openPopupPicture(namePicture, link) {
 function openAddPicture() {
   resetValidateForm(popupAdd, objectConfiguration);
   openPopup(popupAdd);
+  inputTitlePlace.value = '';
+  inputSourceImage.value = '';
 };
 
 function createCard(namePicture, link) {
