@@ -11,12 +11,15 @@ class FormValidator {
     this._button = this._form.querySelector(this._submitButtonSelector);
   }
 
-  _hasInvalidInput = () => Array.from(this._inputs).some((input) => {
-    !input.validity.valid;
-  });
+  _hasInvalidInput = () => {
+    return Array.from(this._inputs).some((input) => {
+      return !input.validity.valid
+    });
+  }
+
 
   _toggleButtonState = () => {
-    if (this._hasInvalidInput(this._inputs)) {
+    if (this._hasInvalidInput()) {
       this._button.classList.add(this._inactiveButtonClass);
       this._button.disabled = true;
     } else {
