@@ -81,6 +81,7 @@ const openAddPicture = () => {
   formValidators.get(`form-${popupAdd.id}`).resetValidateForm();
   popupAdd.querySelector(`#form-${popupAdd.id}`).reset();
   openPopup(popupAdd);
+  formValidators.get(`form-${popupAdd.id}`).resetValidateForm();
 };
 
 const sendFormEditProfile = (evt) => {
