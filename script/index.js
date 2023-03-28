@@ -78,7 +78,6 @@ const createCard = (data) => new Card(data, '#card-template', openPopupPicture).
 const initCards = () => initialCards.forEach((data) => renderCard(createCard(data)));
 
 const openAddPicture = () => {
-  formValidators.get(`form-${popupAdd.id}`).resetValidateForm();
   popupAdd.querySelector(`#form-${popupAdd.id}`).reset();
   openPopup(popupAdd);
   formValidators.get(`form-${popupAdd.id}`).resetValidateForm();
