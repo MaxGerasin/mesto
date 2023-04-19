@@ -1,3 +1,4 @@
+import './index.css';
 
 import { initialCards, objectConfiguration } from '../script/utils/const.js';
 import Section from '../script/components/Section.js';
