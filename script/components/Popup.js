@@ -1,4 +1,4 @@
-class Popup {
+export default class Popup {
   constructor(popupId) {
     this._popup = document.querySelector(popupId);
     this._handleEscClose = this._handleEscClose.bind(this);
@@ -33,4 +33,4 @@ class Popup {
   };
 }
 
-export default  Popup;
+
