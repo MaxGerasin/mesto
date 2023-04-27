@@ -6,6 +6,7 @@ import Card from '../script/components/Card.js';
 import FormValidator from '../script/components/FormValidator.js';
 import PopupWithImage from '../script/components/PopupWithImage.js';
 import PopupWithForm from '../script/components/PopupWithForm.js';
+import PopupDelete from '../script/components/PopupDelete.js';
 import UserInfo from '../script/components/UserInfo.js';
 
 const buttonEdit = document.querySelector('.profile__button-edit');
