@@ -1,6 +1,6 @@
 import './index.css';
 
-import { initialCards, objectConfiguration } from '../script/utils/const.js';
+import { optionsApi, objectConfiguration } from '../script/utils/const.js';
 import Section from '../script/components/Section.js';
 import Card from '../script/components/Card.js';
 import FormValidator from '../script/components/FormValidator.js';
