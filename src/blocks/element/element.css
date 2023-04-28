@@ -1,9 +1,0 @@
-.element {
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 920px) {
-  .element {
-    max-width: 282px;
-  }
-}

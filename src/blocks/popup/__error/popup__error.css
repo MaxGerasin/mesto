@@ -1,14 +1,10 @@
 .popup__error {
-  display: block;
   visibility: hidden;
-  max-width: 358px;
+  display: block;
   min-height: 30px;
-
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
+  max-width: 358px;
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.25;
-
+  line-height: 15px;
   color: #FF0000;
 }
