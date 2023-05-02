@@ -191,12 +191,12 @@ var Card = /*#__PURE__*/function () {
     this._handleCardDelete = handleCardDelete;
     this._myUserInfo = myUserInfo;
     this._handleUpdateLike = handleUpdateLike;
+    this._isLiked = this._checkUserLike();
   }
   _createClass(Card, [{
     key: "_getTemplate",
     value: function _getTemplate() {
-      var cardElement = document.querySelector(this._templateId).content.querySelector('.card').cloneNode(true);
-      return cardElement;
+      return document.querySelector(this._templateId).content.querySelector('.card').cloneNode(true);
     }
   }, {
     key: "_setEventListeners",
@@ -214,21 +214,33 @@ var Card = /*#__PURE__*/function () {
   }, {
     key: "_updateLike",
     value: function _updateLike() {
+      this._handleUpdateLike(this._cardId, this._isLiked, this);
+    }
+  }, {
+    key: "_toggleLikeButton",
+    value: function _toggleLikeButton() {
+      this._likeButton.classList.toggle('card__like-button_active');
+    }
+  }, {
+    key: "_checkUserLike",
+    value: function _checkUserLike() {
       var _this2 = this;
-      this._handleUpdateLike(this._cardId, this._likes, this._myUserInfo, this._likeCounter, function (likes) {
-        _this2._likeButton.classList.toggle('card__like-button_active');
-        _this2._setLikesCard(likes);
+      return this._likes.some(function (userInfo) {
+        return userInfo._id === _this2._myUserInfo.id;
       });
     }
   }, {
-    key: "_setLikesCard",
-    value: function _setLikesCard(likes) {
+    key: "handleLike",
+    value: function handleLike(likes) {
       this._likes = likes;
+      this._isLiked = this._checkUserLike();
+      this._likeCounter.textContent = likes.length;
+      this._toggleLikeButton();
     }
   }, {
     key: "_delete",
     value: function _delete() {
-      this._handleCardDelete(this._element, this._cardId);
+      this._handleCardDelete(this, this._cardId);
     }
   }, {
     key: "removeCard",
@@ -239,16 +251,13 @@ var Card = /*#__PURE__*/function () {
   }, {
     key: "createCard",
     value: function createCard() {
-      var _this3 = this;
       this._element = this._getTemplate();
       this._likeButton = this._element.querySelector('.card__like-button');
       this._cardImage = this._element.querySelector('.card__img');
       this._likeCounter = this._element.querySelector('.card__like-counter');
       this._buttonDelete = this._element.querySelector('.card__trash-button');
       if (this._idOwner !== this._myUserInfo.id) this._buttonDelete.remove();
-      if (this._likes.some(function (userInfo) {
-        return userInfo._id === _this3._myUserInfo.id;
-      })) {
+      if (this._isLiked) {
         this._likeButton.classList.add('card__like-button_active');
       }
       this._likeCounter.textContent = this._likes.length;
@@ -880,20 +889,16 @@ var createCard = function createCard(data) {
     return popupWithImageComponent.open(data);
   }, function (card, cardId) {
     popupConfirmDeleteComponent.setCard(card, cardId), popupConfirmDeleteComponent.open();
-  }, function (cardId, likesCard, myUserInfo, likeCounter, handleSetLikesCard) {
-    if (likesCard.some(function (userInfo) {
-      return userInfo._id === myUserInfo.id;
-    })) {
-      api.deleteLike(cardId).then(function (card) {
-        likeCounter.textContent = card.likes.length;
-        handleSetLikesCard(card.likes);
+  }, function (cardId, isliked, card) {
+    if (isliked) {
+      api.deleteLike(cardId).then(function (res) {
+        card.handleLike(res.likes);
       }).catch(function (err) {
         return console.log(err);
       });
     } else {
-      api.sendLike(cardId).then(function (card) {
-        likeCounter.textContent = card.likes.length;
-        handleSetLikesCard(card.likes);
+      api.sendLike(cardId).then(function (res) {
+        card.handleLike(res.likes);
       }).catch(function (err) {
         return console.log(err);
       });
@@ -945,7 +950,7 @@ var popupEditComponent = new _scripts_components_PopupWithForm_js__WEBPACK_IMPOR
 });
 var popupConfirmDeleteComponent = new _scripts_components_PopupConfirmDelete_js__WEBPACK_IMPORTED_MODULE_7__["default"]('#popup-confirm-delete', function (cardId, card) {
   return api.deleteCard(cardId).then(function () {
-    card.remove();
+    card.removeCard();
     popupConfirmDeleteComponent.close();
   }).catch(function (err) {
     return console.log(err);
