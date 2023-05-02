@@ -60,7 +60,6 @@ const openAddPicture = () => {
 };
 
 const openEditAvatar = () => {
-  popupEditAvatarComponent.setInputValues(userInfoComponent.getUserInfo());
   formValidators.get(popupEditAvatarComponent.getFormId()).resetValidateForm();
   popupEditAvatarComponent.open();
 };

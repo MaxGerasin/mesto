@@ -9,7 +9,7 @@ export default class Api {
     return res.ok ? res.json() : Promise.reject();
   };
 
-  async getCards() {
+  getCards() {
     return fetch(`${this._url}${this._cohort}/cards`, {
       headers: {
         authorization: this._token
@@ -18,7 +18,7 @@ export default class Api {
       .then((res) => this._getResponseData(res))
   };
 
-  async sendCard({ name, link }) {
+  sendCard({ name, link }) {
     return fetch(`${this._url}${this._cohort}/cards`, {
       method: 'POST',
       headers: {
@@ -33,7 +33,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async deleteCard(cardId) {
+  deleteCard(cardId) {
     return fetch(`${this._url}${this._cohort}/cards/${cardId}`, {
       method: 'DELETE',
       headers: {
@@ -43,7 +43,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async getUserInfo() {
+  getUserInfo() {
     return fetch(`${this._url}${this._cohort}/users/me`, {
       headers: {
         authorization: this._token
@@ -52,7 +52,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async updateUserInfo({ name, about }) {
+  updateUserInfo({ name, about }) {
     return fetch(`${this._url}${this._cohort}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -67,7 +67,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async updateUserAvatar({ avatar }) {
+  updateUserAvatar({ avatar }) {
     return fetch(`${this._url}${this._cohort}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -81,7 +81,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async sendLike(cardId) {
+  sendLike(cardId) {
     return fetch(`${this._url}${this._cohort}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: {
@@ -92,7 +92,7 @@ export default class Api {
       .then((res) => this._getResponseData(res));
   };
 
-  async deleteLike(cardId) {
+  deleteLike(cardId) {
     return fetch(`${this._url}${this._cohort}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: {

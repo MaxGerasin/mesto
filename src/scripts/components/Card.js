@@ -49,6 +49,11 @@ export default class Card {
     this._handleCardDelete(this._element, this._cardId);
   };
 
+  removeCard() {
+    this._element.remove();
+    this._element = null;
+  }
+
   createCard() {
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector('.card__like-button');
