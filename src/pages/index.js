@@ -24,19 +24,17 @@ const createCard = (data) => {
       popupConfirmDeleteComponent.setCard(card, cardId),
       popupConfirmDeleteComponent.open()
     },
-    (cardId, likesCard, myUserInfo, likeCounter, handleSetLikesCard) => {
-      if (likesCard.some((userInfo) => userInfo._id === myUserInfo.id)) {
+    (cardId, isliked, card) => {
+      if (isliked) {
         api.deleteLike(cardId)
-          .then((card) => {
-            likeCounter.textContent = card.likes.length;
-            handleSetLikesCard(card.likes);
+          .then((res) => {
+            card.handleLike(res.likes)
           })
           .catch((err) => console.log(err));
       } else {
         api.sendLike(cardId)
-          .then((card) => {
-            likeCounter.textContent = card.likes.length;
-            handleSetLikesCard(card.likes);
+          .then((res) => {
+            card.handleLike(res.likes)
           })
           .catch((err) => console.log(err));
       }
@@ -95,7 +93,7 @@ const popupConfirmDeleteComponent = new PopupConfirmDelete(
   '#popup-confirm-delete',
   (cardId, card) => api.deleteCard(cardId)
     .then(() => {
-      card.remove();
+      card.removeCard();
       popupConfirmDeleteComponent.close();
     })
     .catch((err) => console.log(err))
